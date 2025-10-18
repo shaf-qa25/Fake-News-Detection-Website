@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  
   "dependencies": {
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
