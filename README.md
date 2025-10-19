@@ -25,7 +25,6 @@ Built with a full-stack approach including frontend, backend, and ML integration
 ---
 
 ## 👥 Team  
-- **Leader:** Shafqa  
 - **Frontend:** Siddharth  
 - **Designer:** Shagun  
 - **Backend:**  Shafqa
