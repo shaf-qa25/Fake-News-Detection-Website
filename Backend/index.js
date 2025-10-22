@@ -1,24 +1,58 @@
-const express = require('express');
-const app = express();
-require('dotenv').config();
-const cors= require('cors');
-const bodyParser = require('body-parser');
-require('./Models/db')
-const AuthRouter = require('./Routes/AuthRouter');
-const ProductRouter = require('./Routes/ProductRouter');
 
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import bodyParser from "body-parser";
+import path from "path";
+import { fileURLToPath } from "url";
+import connectDB from "./models/db.js";
+
+import AuthRouter from "./routes/AuthRouter.js";
+import ProductRouter from "./routes/ProductRouter.js";
+import NewsRouter from "./routes/NewsRouter.js";
+import predictRoute from "./routes/predict.js"; 
+import BookmarkRouter from "./routes/BookmarkRouter.js";
+import oauthRoutes from "./routes/oauthRoutes.js";
+import passport from "passport";
+
+
+
+connectDB();
+
+dotenv.config();
+const app = express();
 const PORT = parseInt(process.env.PORT, 10) || 8000;
 
-app.get('/ping', (req, res) => {
-    console.log('ping-pong');
-    res.status(200).json({ message: 'pong', port: PORT });
-});
 
 app.use(bodyParser.json());
-app.use(cors());
-app.use('/auth', AuthRouter);
-app.use('/products', ProductRouter);
+app.use(cors({ origin: "*" }));
+app.use(passport.initialize());
+
+
+app.use("/auth", oauthRoutes);
+
+
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "public")));
+
+
+app.get("/ping", (req, res) => {
+  console.log("ping-pong");
+  res.status(200).json({ message: "pong", port: PORT });
+});
+
+
+app.use("/api/auth", AuthRouter);
+app.use("/products", ProductRouter);
+app.use("/api", NewsRouter);
+app.use("/api/bookmarks", BookmarkRouter);
+
+app.use("/predict", predictRoute);
+
 
 app.listen(PORT, () => {
-    console.log(`server is running on ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
