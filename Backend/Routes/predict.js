@@ -1,5 +1,5 @@
 import express from "express";
-import Check from "../models/Check.js"; 
+import Check from "../Models/Check.js"; 
 
 const router = express.Router();
 const ML_URL = process.env.ML_URL || "http://localhost:5001/predict";

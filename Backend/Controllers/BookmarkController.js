@@ -1,4 +1,4 @@
-import Bookmark from "../models/bookmark.js";
+import Bookmark from "../Models/bookmark.js";
 
 export const toggleBookmark = async (req, res) => {
   try {

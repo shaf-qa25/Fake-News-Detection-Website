@@ -5,14 +5,14 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import path from "path";
 import { fileURLToPath } from "url";
-import connectDB from "./models/db.js";
+import connectDB from "./Models/db.js";
 
-import AuthRouter from "./routes/AuthRouter.js";
-import ProductRouter from "./routes/ProductRouter.js";
-import NewsRouter from "./routes/NewsRouter.js";
-import predictRoute from "./routes/predict.js"; 
-import BookmarkRouter from "./routes/BookmarkRouter.js";
-import oauthRoutes from "./routes/oauthRoutes.js";
+import AuthRouter from "./Routes/AuthRouter.js";
+import ProductRouter from "./Routes/ProductRouter.js";
+import NewsRouter from "./Routes/NewsRouter.js";
+import predictRoute from "./Routes/predict.js"; 
+import BookmarkRouter from "./Routes/BookmarkRouter.js";
+import oauthRoutes from "./Routes/oauthRoutes.js";
 import passport from "passport";
 
 dotenv.config();
