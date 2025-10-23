@@ -15,11 +15,11 @@ import BookmarkRouter from "./routes/BookmarkRouter.js";
 import oauthRoutes from "./routes/oauthRoutes.js";
 import passport from "passport";
 
-
+dotenv.config();
 
 connectDB();
 
-dotenv.config();
+
 const app = express();
 const PORT = parseInt(process.env.PORT, 10) || 8000;
 
