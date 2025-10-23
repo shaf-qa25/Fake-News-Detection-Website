@@ -1,4 +1,4 @@
-import NewsModel from "../Models/News.js";
+import NewsModel from "../models/News.js";
 
 /**
  * Saves a news item to the database.

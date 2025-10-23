@@ -1,6 +1,6 @@
 
 import express from "express";
-import ensureAuthenticated from "../Middlewares/AuthMiddlewares.js";
+import ensureAuthenticated from "../middlewares/AuthMiddlewares.js";
 
 const router = express.Router();
 

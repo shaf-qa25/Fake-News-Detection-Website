@@ -1,7 +1,7 @@
 import express from "express";
-import { toggleBookmark } from "../Controllers/BookmarkController.js";
-import ensureAuthenticated from "../Middlewares/ensureAuthenticated.js";
-import Bookmark from "../Models/bookmark.js";
+import { toggleBookmark } from "../controllers/BookmarkController.js";
+import ensureAuthenticated from "../middlewares/ensureAuthenticated.js";
+import Bookmark from "../models/bookmark.js";
 
 const router = express.Router();
 
