@@ -1,6 +1,6 @@
 import express from "express";
 // Controller jismein news item save karne ka logic hai
-import { saveNewsItem } from "../controllers/NewsController.js"; 
+import { saveNewsItem } from "../controllers/newsController.js"; 
 // Middleware jo check karta hai ki user logged in hai ya nahi (token check)
 import ensureAuthenticated from "../middlewares/ensureAuthenticated.js"; 
 
