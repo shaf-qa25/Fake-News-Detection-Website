@@ -1,4 +1,5 @@
 import React from "react";
+import VernisLogo from "./VernisLogo";
 
 const LightbulbIcon = ({ className }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -69,7 +70,7 @@ const ComplexFooter = () => {
           {/* Logo */}
           <div className="flex flex-col space-y-2 sm:space-y-4 col-span-1 lg:col-span-1">
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/70 rounded-full mb-2 sm:mb-4 flex items-center justify-center">
-              <LightbulbIcon className="h-8 w-8 sm:h-10 sm:w-10 text-indigo-600" />
+              <VernisLogo className="h-8 w-8 sm:h-10 sm:w-10 text-indigo-600" />
             </div>
             <h2 className="text-xl sm:text-2xl font-bold text-white">Vernis</h2>
           </div>
