@@ -14,7 +14,7 @@ import predictRoute from "./routes/predict.js";
 import BookmarkRouter from "./routes/BookmarkRouter.js";
 import oauthRoutes from "./routes/oauthRoutes.js";
 import passport from "passport";
-
+import TnewsRoutes from "./routes/trendingnews.js";
 dotenv.config();
 
 connectDB();
@@ -49,6 +49,8 @@ app.use("/api/auth", AuthRouter);
 app.use("/products", ProductRouter);
 app.use("/api", NewsRouter);
 app.use("/api/bookmarks", BookmarkRouter);
+
+app.use("/api/trending", TnewsRoutes);
 
 app.use("/predict", predictRoute);
 
