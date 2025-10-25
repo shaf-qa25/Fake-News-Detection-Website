@@ -7,9 +7,7 @@ const heroImages = [
   "https://images.unsplash.com/photo-1523995462485-3d171b5c8fa9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=435",
 ];
 
-const API_KEY = "3b91b6b2224ab2a093a5b8a222eef4c0"; // GNews API Key
-const GNEWS_URL = `https://gnews.io/api/v4/top-headlines?token=${API_KEY}&lang=en&max=9`;
-
+const API_URL = "https://vernis.onrender.com"; // your backend UR
 const Home = () => {
   const [current, setCurrent] = useState(0);
   const [news, setNews] = useState([]);
@@ -29,8 +27,8 @@ const Home = () => {
     const fetchNews = async () => {
       try {
         setLoading(true);
-        const response = await fetch(GNEWS_URL);
-        const data = await response.json();
+        const res = await fetch(`${API_URL}/api/trending/top-news`);
+        const data = await res.json();
         setNews(data.articles || []);
       } catch (error) {
         console.error("Error fetching news:", error);
@@ -55,9 +53,8 @@ const Home = () => {
         {heroImages.map((img, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === current ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === current ? "opacity-100" : "opacity-0"
+              }`}
             style={{
               backgroundImage: `url(${img})`,
               backgroundSize: "cover",
