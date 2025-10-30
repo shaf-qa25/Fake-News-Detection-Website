@@ -5,7 +5,7 @@ const faqs = [
     {
         question: "What is the Fake News Detector?",
         answer:
-            "It’s a web-based platform that checks the credibility of online news using a trained AI model and verified databases.",
+            "It's a web-based platform that checks the credibility of online news using a trained AI model and verified databases.",
     },
     {
         question: "How accurate are the results?",
@@ -25,7 +25,7 @@ const faqs = [
     {
         question: "How can I contribute or give feedback?",
         answer:
-            "You can share your suggestions using our Contact Us form below — we’d love to hear from you!",
+            "You can share your suggestions using our Contact Us form below — we'd love to hear from you!",
     },
     {
         question: "Is my data safe?",

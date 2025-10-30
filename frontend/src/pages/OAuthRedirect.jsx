@@ -11,9 +11,9 @@ const OAuthRedirect = () => {
 
     if (token) {
       localStorage.setItem("token", token);
-      navigate("/"); // Redirect to homepage (or dashboard)
+      navigate("/"); 
     } else {
-      navigate("/login"); // If something went wrong
+      navigate("/login");
     }
   }, [location, navigate]);
 

@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
-    window.location.href = "/login"; // or "/" if you want to redirect home
+    window.location.href = "/login";
   };
 
   return (
@@ -32,7 +32,6 @@ const Navbar = () => {
             <span className="text-xl font-semibold tracking-wide">Vernis</span>
           </div>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex space-x-8">
             <a href="/" className="hover:text-blue-200 transition-colors">Home</a>
             <a href="/search" className="hover:text-blue-200 transition-colors">Search</a>
@@ -55,7 +54,6 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -67,7 +65,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-[#0E58C7]/95 backdrop-blur-md">
           <div className="px-4 pt-2 pb-3 space-y-2">

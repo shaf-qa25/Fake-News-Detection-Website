@@ -1,4 +1,3 @@
-// src/components/VernisLogo.jsx
 import React from "react";
 
 const VernisLogo = ({ size = 50 }) => (
@@ -15,13 +14,11 @@ const VernisLogo = ({ size = 50 }) => (
       </linearGradient>
     </defs>
 
-    {/* Shield */}
     <path
       d="M60 12 L94 28 v24 c0 28 -18 48 -34 56 -16 -8 -34 -28 -34 -56V28z"
       fill="url(#g1)"
     />
 
-    {/* Magnifier Rim */}
     <circle
       cx="86"
       cy="74"
@@ -31,7 +28,6 @@ const VernisLogo = ({ size = 50 }) => (
       strokeWidth="4"
     />
 
-    {/* Handle */}
     <rect
       x="94"
       y="86"
@@ -42,7 +38,6 @@ const VernisLogo = ({ size = 50 }) => (
       fill="#FFC857"
     />
 
-    {/* Checkmark */}
     <path
       d="M45 64 l10 10 l20 -24"
       fill="none"

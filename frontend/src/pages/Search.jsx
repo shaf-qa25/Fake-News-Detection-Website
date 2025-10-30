@@ -8,7 +8,7 @@ const SearchPage = () => {
   const [bookmarkMessage, setBookmarkMessage] = useState("");
 
   const token = localStorage.getItem("token");
-  const API_URL = "https://vernis.onrender.com"; // Render backend URL
+  const API_URL = "https://vernis.onrender.com"; 
 
   const handleCheckNews = async () => {
     if (!newsText.trim()) return;
@@ -18,7 +18,7 @@ const SearchPage = () => {
     setBookmarkMessage("");
 
     try {
-      const res = await fetch(`${API_URL}/predict`, { // updated URL
+      const res = await fetch(`${API_URL}/predict`, { 
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: newsText }),
@@ -30,7 +30,7 @@ const SearchPage = () => {
         console.error(data);
         alert(data.error || "ML service error");
       } else {
-        setPredictionResult(data); // data = { label, score }
+        setPredictionResult(data); 
       }
     } catch (error) {
       console.error(error);
@@ -49,7 +49,7 @@ const SearchPage = () => {
     }
 
     try {
-      const res = await fetch(`${API_URL}/api/bookmarks/toggle`, { // updated URL
+      const res = await fetch(`${API_URL}/api/bookmarks/toggle`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const SearchPage = () => {
             value={newsText}
             onChange={(e) => {
               setNewsText(e.target.value);
-              setBookmarkMessage(""); // reset old message
+              setBookmarkMessage(""); 
             }}
             rows={8}
             placeholder="Paste or type the news article here"

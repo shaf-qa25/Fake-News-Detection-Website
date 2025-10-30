@@ -19,7 +19,7 @@ const ensureAuthenticated = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = { _id: decoded._id, email: decoded.email }; // Attach user info
+    req.user = { _id: decoded._id, email: decoded.email };
     next();
   } catch (error) {
     console.error("JWT Error:", error.message);

@@ -3,7 +3,7 @@ import Navbar from "./navbar";
 
 const GoogleIcon = ({ className }) => (
   <svg className={className} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* SVG paths */}
+
   </svg>
 );
 
@@ -12,7 +12,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_URL = "https://vernis.onrender.com"; // Render backend URL
+  const API_URL = "https://vernis.onrender.com";
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -22,7 +22,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_URL}/api/auth/login`, { // updated URL
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -31,11 +31,10 @@ const Login = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || data.errors?.join(", ") || "Login failed");
 
-      // Save token
+    
       localStorage.setItem("token", data.token);
       alert(data.message);
 
-      // Redirect to dashboard/home
       window.location.href = "/";
     } catch (err) {
       setError(err.message);
@@ -46,7 +45,6 @@ const Login = () => {
 
   return (
     <div className="relative w-full min-h-screen">
-      {/* Video Background */}
       <video autoPlay loop muted className="fixed top-0 left-0 w-full h-full object-cover z-0" src="/background.mp4" />
       <div className="fixed top-0 left-0 w-full h-full bg-black/50 z-0"></div>
       <div className="fixed top-0 left-0 w-full z-20">
@@ -96,7 +94,7 @@ const Login = () => {
           <div className="mt-6 w-full">
             <p className="text-center text-gray-400 text-sm mb-4">OR</p>
             <button
-              onClick={() => window.location.href = `${API_URL}/auth/google`} // updated URL
+              onClick={() => window.location.href = `${API_URL}/auth/google`} 
               className="w-full py-3 flex items-center justify-center space-x-3 bg-white text-gray-700 font-semibold rounded-xl border border-gray-300 hover:bg-gray-100"
             >
               <GoogleIcon className="w-6 h-6" />

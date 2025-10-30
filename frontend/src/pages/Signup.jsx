@@ -3,12 +3,12 @@ import Navbar from "./navbar";
 
 const GoogleIcon = ({ className }) => (
   <svg className={className} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* SVG paths */}
+  
   </svg>
 );
 
 const Signup = () => {
-  const API_URL = "https://vernis.onrender.com"; // Render backend URL
+  const API_URL = "https://vernis.onrender.com"; 
 
   const [formData, setFormData] = useState({
     name: "",
@@ -31,7 +31,7 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_URL}/api/auth/signup`, {  // URL updated
+      const res = await fetch(`${API_URL}/api/auth/signup`, {  
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -40,12 +40,12 @@ const Signup = () => {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || data.errors?.join(", ") || "Signup failed");
 
-      // Save token
+      
       localStorage.setItem("token", data.token);
       alert(data.message);
 
-      // Redirect to dashboard/home
-      window.location.href = "/"; // change to dashboard if exists
+      
+      window.location.href = "/";
     } catch (err) {
       setError(err.message);
     } finally {
@@ -55,7 +55,7 @@ const Signup = () => {
 
   return (
     <div className="relative w-full min-h-screen">
-      {/* Video Background */}
+  
       <video
         autoPlay
         loop
@@ -140,7 +140,7 @@ const Signup = () => {
           <div className="mt-6 w-full">
             <p className="text-center text-gray-400 text-sm mb-4">OR</p>
             <button
-              onClick={() => window.location.href = `${API_URL}/auth/google`} // URL updated
+              onClick={() => window.location.href = `${API_URL}/auth/google`} 
               className="w-full py-3 flex items-center justify-center space-x-3 bg-white text-gray-700 font-semibold rounded-xl border border-gray-300 hover:bg-gray-100"
             >
               <GoogleIcon className="w-6 h-6" />

@@ -4,10 +4,6 @@ import Shafqa from "./Shafqa.jpg"
 import Anushka from "./Anushka.jpg"
 import ComplexFooter from "./footer";
 
-// AboutUs.jsx
-// Minimal About Us component as requested.
-// Drop into your React app (e.g. src/pages/AboutUs.jsx) and make sure Tailwind is configured.
-
 export default function AboutUs() {
   const team = [
     { name: "Shafqa Fatma", domain: "MERN Stack", img: Shafqa },

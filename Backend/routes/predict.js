@@ -2,9 +2,10 @@ import express from "express";
 import Check from "../models/Check.js"; 
 
 const router = express.Router();
-const ML_URL = process.env.ML_URL || "http://localhost:5001/predict";
+const ML_URL = "https://fraud-news-1.onrender.com/predict";
 
 router.post("/", async (req, res) => {
+  console.log("🔥 /predict route hit with body:", req.body);
   try {
     const { text } = req.body;
 
@@ -17,6 +18,7 @@ router.post("/", async (req, res) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text })
+
     });
 
     if (!response.ok) {
@@ -24,12 +26,14 @@ router.post("/", async (req, res) => {
     }
 
     const mlResult = await response.json(); 
+    console.log("ML API response:", mlResult);
+
 
     
     const newCheck = new Check({
       snippet: text.slice(0, 200),
       rawText: text,
-      prediction: mlResult,
+      prediction: mlResult.predictions,
       ip: req.ip,
       userAgent: req.get("User-Agent")
     });
@@ -39,7 +43,7 @@ router.post("/", async (req, res) => {
     
     res.json({
       message: "Prediction successful",
-      prediction: mlResult,
+      prediction: mlResult.predictions,
       snippet: newCheck.snippet,
       createdAt: newCheck.createdAt
     });

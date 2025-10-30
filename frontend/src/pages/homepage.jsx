@@ -7,14 +7,14 @@ const heroImages = [
   "https://images.unsplash.com/photo-1523995462485-3d171b5c8fa9?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=435",
 ];
 
-const API_URL = "https://vernis.onrender.com"; // your backend UR
+const API_URL = "https://vernis.onrender.com"; 
 const Home = () => {
   const [current, setCurrent] = useState(0);
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const trendingRef = useRef(null);
 
-  // Hero slideshow
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % heroImages.length);
@@ -22,7 +22,6 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Fetch trending news
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -39,7 +38,6 @@ const Home = () => {
     fetchNews();
   }, []);
 
-  // Scroll to trending section
   const handleExploreClick = () => {
     if (trendingRef.current) {
       trendingRef.current.scrollIntoView({ behavior: "smooth" });
@@ -48,7 +46,6 @@ const Home = () => {
 
   return (
     <div>
-      {/* HERO SECTION */}
       <section className="relative h-[70vh] w-full overflow-hidden">
         {heroImages.map((img, index) => (
           <div
@@ -79,8 +76,6 @@ const Home = () => {
           </button>
         </div>
       </section>
-
-      {/* TRENDING NEWS SECTION */}
       <section ref={trendingRef} className="max-w-7xl mx-auto py-12 px-4">
         <h2 className="text-3xl font-bold mb-6">🔥 Trending News</h2>
 
@@ -98,7 +93,6 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg hover:-translate-y-1 transition-transform duration-300"
               >
-                {/* Image */}
                 {item.image ? (
                   <div className="w-full h-64 overflow-hidden">
                     <img
@@ -113,7 +107,6 @@ const Home = () => {
                   </div>
                 )}
 
-                {/* Content */}
                 <div className="p-4 flex flex-col flex-grow">
                   <h3 className="font-semibold text-lg mb-2 text-gray-900">
                     {item.title}
@@ -122,13 +115,11 @@ const Home = () => {
                     {item.description || "Click to read full article."}
                   </p>
 
-                  {/* Source + Date */}
                   <div className="mt-auto flex justify-between items-center text-sm text-gray-500">
                     <span>{item.source.name}</span>
                     <span>{new Date(item.publishedAt).toLocaleDateString()}</span>
                   </div>
 
-                  {/* Read More Button */}
                   <button className="mt-3 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors">
                     Read More →
                   </button>

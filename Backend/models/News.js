@@ -9,7 +9,7 @@ const NewsSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // News ID automatically provided by MongoDB
+     
 });
 
 const NewsModel = mongoose.model("News", NewsSchema);

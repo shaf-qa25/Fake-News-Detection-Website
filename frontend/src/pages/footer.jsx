@@ -1,12 +1,7 @@
 import React from "react";
 import VernisLogo from "./VernisLogo";
 
-const LightbulbIcon = ({ className }) => (
-  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M15 14c.2-1 .5-2 1-3 1.2-2.3 2.9-4.2 4-5.5.7-.9 1.4-2.2 1-4-.4-1.4-2.7-1.4-4-.4-.5.4-1.2 1-1.7 1.6-1.1 1.4-2.8 3.3-4 5.5-.5.9-.8 1.9-1 3m-4 5a4 4 0 0 1-4-4 4 4 0 0 1 4-4 4 4 0 0 1 4 4 4 4 0 0 1-4 4z"/>
-    <path d="M12 2v2M22 12h-2"/>
-  </svg>
-);
+
 
 const GlobeIcon = ({ className }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -65,9 +60,9 @@ const ComplexFooter = () => {
   return (
     <footer className="py-8 px-6 sm:py-10" style={footerStyle}>
       <div className="max-w-7xl mx-auto">
-        {/* Main Columns */}
+      
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 sm:gap-10 border-b border-white/10 pb-8 sm:pb-10">
-          {/* Logo */}
+      
           <div className="flex flex-col space-y-2 sm:space-y-4 col-span-1 lg:col-span-1">
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/70 rounded-full mb-2 sm:mb-4 flex items-center justify-center">
               <VernisLogo className="h-8 w-8 sm:h-10 sm:w-10 text-indigo-600" />
@@ -75,7 +70,7 @@ const ComplexFooter = () => {
             <h2 className="text-xl sm:text-2xl font-bold text-white">Vernis</h2>
           </div>
 
-          {/* Company */}
+        
           <div>
             <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-amber-400">Company</h3>
             <ul className="space-y-2 sm:space-y-3 text-white/90">
@@ -85,7 +80,7 @@ const ComplexFooter = () => {
             </ul>
           </div>
 
-          {/* Navigation */}
+        
           <div>
             <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-amber-400">Navigation</h3>
             <ul className="space-y-2 sm:space-y-3 text-white/90">
@@ -94,7 +89,7 @@ const ComplexFooter = () => {
             </ul>
           </div>
 
-          {/* Sections */}
+   
           <div>
             <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-amber-400">Sections</h3>
             <ul className="space-y-2 sm:space-y-3 text-white/90">
@@ -103,7 +98,6 @@ const ComplexFooter = () => {
             </ul>
           </div>
 
-          {/* Account */}
           <div>
             <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4 text-amber-400">Account</h3>
             <ul className="space-y-2 sm:space-y-3 text-white/90">
@@ -113,7 +107,6 @@ const ComplexFooter = () => {
           </div>
         </div>
 
-        {/* Social & Policies */}
         <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:justify-between items-center">
           <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6">
             <div className="flex space-x-3">
@@ -140,7 +133,6 @@ const ComplexFooter = () => {
           </div>
         </div>
 
-        {/* Final Copyright */}
         <div className="mt-6 sm:mt-8 text-center text-xs text-white/50 border-t border-white/10 pt-3">
           &copy; {new Date().getFullYear()} Vernis. All rights reserved.
         </div>

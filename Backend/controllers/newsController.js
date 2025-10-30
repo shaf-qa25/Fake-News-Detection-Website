@@ -1,12 +1,5 @@
 import NewsModel from "../models/News.js";
-
-/**
- * Saves a news item to the database.
- * Endpoint: POST /api/news/save
- */
 export const saveNewsItem = async (req, res) => {
-    // Note: ensureAuthenticated middleware yahan se pehle chal chuka hai, lekin 
-    // hum NewsModel mein user ID abhi nahi daal rahe hain. Hum sirf news item save kar rahe hain.
     const { title, content, prediction } = req.body;
     
     if (!title || !content) {
@@ -17,12 +10,11 @@ export const saveNewsItem = async (req, res) => {
         const newNews = new NewsModel({
             title,
             content,
-            prediction // Prediction field bhi save kar rahe hain
+            prediction 
         });
 
         const savedNews = await newNews.save();
 
-        // CRITICAL: savedNews mein MongoDB se mili _id hoti hai, jo bookmarking ke liye zaroori hai.
         res.status(201).json({
             message: "News item saved successfully.",
             newsItem: savedNews
