@@ -8,7 +8,7 @@ const SearchPage = () => {
   const [bookmarkMessage, setBookmarkMessage] = useState("");
 
   const token = localStorage.getItem("token");
-  const API_URL = "https://vernis.onrender.com"; 
+  const API_URL = "https://vernis.onrender.com";
 
   const handleCheckNews = async () => {
     if (!newsText.trim()) return;
@@ -18,7 +18,7 @@ const SearchPage = () => {
     setBookmarkMessage("");
 
     try {
-      const res = await fetch(`${API_URL}/predict`, { 
+      const res = await fetch(`${API_URL}/predict`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: newsText }),
@@ -30,7 +30,7 @@ const SearchPage = () => {
         console.error(data);
         alert(data.error || "ML service error");
       } else {
-        setPredictionResult(data); 
+        setPredictionResult(data);
       }
     } catch (error) {
       console.error(error);
@@ -87,7 +87,7 @@ const SearchPage = () => {
             value={newsText}
             onChange={(e) => {
               setNewsText(e.target.value);
-              setBookmarkMessage(""); 
+              setBookmarkMessage("");
             }}
             rows={8}
             placeholder="Paste or type the news article here"
@@ -103,10 +103,18 @@ const SearchPage = () => {
             {isLoading ? "Checking..." : "Check News"}
           </button>
 
-          {predictionResult && predictionResult.label && (
+          {predictionResult && predictionResult.prediction && (
             <div className="mt-4 p-4 bg-white/20 text-white rounded-lg shadow-md">
-              <p><strong>Prediction:</strong> {predictionResult.label.toUpperCase()}</p>
-              <p><strong>Score:</strong> {predictionResult.score}</p>
+              <p className="font-semibold mb-2">Prediction Results:</p>
+              {Object.entries(predictionResult.prediction).map(([model, result]) => (
+                <p key={model}>
+                  <strong>{model}:</strong> {result}
+                </p>
+              ))}
+
+              <p className="mt-2 text-sm italic">
+                Snippet: {predictionResult.snippet}
+              </p>
 
               <button
                 onClick={handleToggleBookmark}
@@ -116,6 +124,7 @@ const SearchPage = () => {
               </button>
             </div>
           )}
+
         </div>
       </main>
     </div>
