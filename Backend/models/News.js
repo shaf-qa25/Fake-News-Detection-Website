@@ -10,6 +10,8 @@ const NewsSchema = new mongoose.Schema({
         required: true,
     },
      
+
+    
 });
 
 const NewsModel = mongoose.model("News", NewsSchema);
